@@ -19,9 +19,9 @@ export default function Contact() {
         .then((res)=>{
             setMessage(res.message);
             setInputs({});
-            setTimeout(()=>{//kaadira message ah alikka
-                setMessage("")
-            },3000)
+            setTimeout(()=>{
+                
+            })
         })
 
     }

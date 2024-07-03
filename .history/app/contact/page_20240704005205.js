@@ -19,9 +19,6 @@ export default function Contact() {
         .then((res)=>{
             setMessage(res.message);
             setInputs({});
-            setTimeout(()=>{//kaadira message ah alikka
-                setMessage("")
-            },3000)
         })
 
     }
@@ -42,9 +39,10 @@ export default function Contact() {
                     <label htmlFor="message" className="w-1/4">Message:</label>
                     <textarea id="message" name="message" onChange={handleInput} value={inputs.message??""} className="border rounded px-2 py-1 w-3/4" rows="4"></textarea>
                 </div>
-                <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Submit</button>
+                <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Submit</button>
             </form>
-            {message && <p>{message}</p>}
+            {message && <p>{}</p>}
+            
         </main>
     )
 }

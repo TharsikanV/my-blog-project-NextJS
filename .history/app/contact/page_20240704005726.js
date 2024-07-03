@@ -19,7 +19,7 @@ export default function Contact() {
         .then((res)=>{
             setMessage(res.message);
             setInputs({});
-            setTimeout(()=>{//kaadira message ah alikka
+            setTimeout(()=>{//k
                 setMessage("")
             },3000)
         })
