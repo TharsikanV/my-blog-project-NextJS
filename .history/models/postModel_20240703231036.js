@@ -13,7 +13,7 @@ postSchema.virtual('short_description').get(function(){
 //but ithu database la store aakathu
 
 postSchema.virtual('created_at_formatted').get(function(){
-    return changeDateFormat(this.createdAt)
+    return changeDateFormat(this.createdAt    )
 });
 
 function changeDateFormat(date_str){

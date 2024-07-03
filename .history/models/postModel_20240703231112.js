@@ -4,7 +4,8 @@ const postSchema=new Schema({
     title:String,
     description:String,
     image:String,
-    createdAt:String
+    createdAt
+:String
 },{toJSON:{virtuals:true}});//virtuals varapokithu athukkakathaan
 
 postSchema.virtual('short_description').get(function(){

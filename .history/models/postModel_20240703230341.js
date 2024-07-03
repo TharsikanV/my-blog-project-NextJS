@@ -4,7 +4,7 @@ const postSchema=new Schema({
     title:String,
     description:String,
     image:String,
-    createdAt:String
+    created_at:String
 },{toJSON:{virtuals:true}});//virtuals varapokithu athukkakathaan
 
 postSchema.virtual('short_description').get(function(){
@@ -13,16 +13,17 @@ postSchema.virtual('short_description').get(function(){
 //but ithu database la store aakathu
 
 postSchema.virtual('created_at_formatted').get(function(){
-    return changeDateFormat(this.createdAt)
+    return changeDateFormat(this.created_at)
 });
 
 function changeDateFormat(date_str){
+    date_str="2024-07-03"
     const date=new Date(date_str);
     const months = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
     ];
 
-    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear}`
 }
 
 

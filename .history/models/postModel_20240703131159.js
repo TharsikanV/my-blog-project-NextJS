@@ -4,7 +4,7 @@ const postSchema=new Schema({
     title:String,
     description:String,
     image:String,
-    createdAt:String
+    created_at:String
 },{toJSON:{virtuals:true}});//virtuals varapokithu athukkakathaan
 
 postSchema.virtual('short_description').get(function(){
@@ -13,7 +13,7 @@ postSchema.virtual('short_description').get(function(){
 //but ithu database la store aakathu
 
 postSchema.virtual('created_at_formatted').get(function(){
-    return changeDateFormat(this.createdAt)
+    this.created_at
 });
 
 function changeDateFormat(date_str){
@@ -22,9 +22,8 @@ function changeDateFormat(date_str){
     "July", "August", "September", "October", "November", "December"
     ];
 
-    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+    return
 }
-
 
 const PostModel=models.Post || model('Post',postSchema);
 //page refress aaka thirumpa intha model create pannavarum so

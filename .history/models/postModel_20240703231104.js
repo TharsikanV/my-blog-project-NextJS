@@ -4,7 +4,7 @@ const postSchema=new Schema({
     title:String,
     description:String,
     image:String,
-    createdAt:String
+    created_at:String
 },{toJSON:{virtuals:true}});//virtuals varapokithu athukkakathaan
 
 postSchema.virtual('short_description').get(function(){
@@ -13,7 +13,8 @@ postSchema.virtual('short_description').get(function(){
 //but ithu database la store aakathu
 
 postSchema.virtual('created_at_formatted').get(function(){
-    return changeDateFormat(this.createdAt)
+    return changeDateFormat(this.createdAt
+    )
 });
 
 function changeDateFormat(date_str){
