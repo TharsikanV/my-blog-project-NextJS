@@ -5,8 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
-  const inputRef =useRef("");
-  const [search,setSearch]=useState(false);
+  useRef()
 
   useEffect(() => {
     fetch(process.env.NEXT_PUBLIC_API_URL + '/posts')//NEXT_PUBLIC_ ipd munnukku podda client side layum use pannikalaam
@@ -14,19 +13,8 @@ export default function Home() {
       .then(res => setPosts(res))
   }, []);
 
-  const searchPost=(e)=>{
-    if(e.type=='keydown' && e.key !== 'Enter'){
-      return;
-    }
-
-    setSearch(true);
-    // setTimeout(()=>{
-      fetch(process.env.NEXT_PUBLIC_API_URL + '/posts?q='+inputRef.current.value)//ipd edutudam search value ah
-      .then((res) => res.json())
-      .then(res => setPosts(res))
-      .finally(()=>setSearch(false))
-    // },2000)
-   
+  const searchPost=()=>{
+    fetch(process.env.NEXT_PUBLIC_API_URL + '/posts?q=')
   }
 
   return (
@@ -36,8 +24,8 @@ export default function Home() {
         <p>Here you can the latest articles.</p>
       </main>
       <div className="flex justify-end px-4">
-        <input onKeyDown={searchPost} ref={inputRef} disabled={search} type="text" className="px-4 py-2 border border-gray-300 rounded-md" placeholder="Search..." />
-        <button onClick={searchPost} disabled={search} className="px-4 py-2 bg-blue-500 text-white rounded-md ml-4">{search?'...':'Search'}</button>
+        <input type="text" className="px-4 py-2 border border-gray-300 rounded-md" placeholder="Search..." />
+        <button onClick={searchPost} className="px-4 py-2 bg-blue-500 text-white rounded-md ml-4">Search</button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {posts.map((post) => (
@@ -50,8 +38,6 @@ export default function Home() {
           </Link>
 
         ))}
-        {!posts.length>0 && inputRef.current.value && <p>No posts available for this query:<b>{inputRef.current.value}</b></p>}
-        
       </div>
     </>
 

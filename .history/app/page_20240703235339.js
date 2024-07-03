@@ -15,9 +15,7 @@ export default function Home() {
   }, []);
 
   const searchPost=(e)=>{
-    if(e.type=='keydown' && e.key !== 'Enter'){
-      return;
-    }
+    if(e.type=='keydown' && e.key !== 'Enter')
 
     setSearch(true);
     // setTimeout(()=>{
@@ -36,7 +34,7 @@ export default function Home() {
         <p>Here you can the latest articles.</p>
       </main>
       <div className="flex justify-end px-4">
-        <input onKeyDown={searchPost} ref={inputRef} disabled={search} type="text" className="px-4 py-2 border border-gray-300 rounded-md" placeholder="Search..." />
+        <input onKeyDown={searchPost} ref={inputRef} type="text" className="px-4 py-2 border border-gray-300 rounded-md" placeholder="Search..." />
         <button onClick={searchPost} disabled={search} className="px-4 py-2 bg-blue-500 text-white rounded-md ml-4">{search?'...':'Search'}</button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
