@@ -5,7 +5,7 @@ export const metadata={
     description:'Contact Form'
 }
 
-export default function Page() {
+export default function Contact() {
     return(
         <Contact/>
     )

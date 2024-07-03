@@ -1,11 +1,11 @@
-import Contact from '@/components/Contact'
+import Contact from 
 
 export const metadata={
     title:"Contact Us Page",
     description:'Contact Form'
 }
 
-export default function Page() {
+export default function Contact() {
     return(
         <Contact/>
     )

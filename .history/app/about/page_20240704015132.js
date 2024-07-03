@@ -1,6 +1,6 @@
 export const metadata={
     title:"About Us Page",
-    description:'Page is descriped here'
+    description:'this is the description'
 }
 
 export default function About() {
